@@ -1,0 +1,5 @@
+-- CreateTable
+CREATE TABLE "Services" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "info" TEXT NOT NULL
+);
