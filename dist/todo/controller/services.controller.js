@@ -22,8 +22,10 @@ let ServicesController = class ServicesController {
     async getAllTodo() {
         return this.servicesService.getAllServices();
     }
-    async createTodo(postData) {
-        return this.servicesService.updateServices(postData);
+    async createTodo(postData, header) {
+        if (header.authorization === `Bearer ${process.env.API_KEY}`) {
+            return this.servicesService.updateServices(postData);
+        }
     }
 };
 __decorate([
@@ -35,8 +37,9 @@ __decorate([
 __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.Headers)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Array]),
+    __metadata("design:paramtypes", [Array, Object]),
     __metadata("design:returntype", Promise)
 ], ServicesController.prototype, "createTodo", null);
 ServicesController = __decorate([
